@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Penjualan </title>
+    <!-- Load Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Analisis Penjualan </h1>
+    
+    <canvas id="salesChart" width="800" height="400"></canvas>
+
+    <script>
+        // Dummy data set (gantilah dengan data penjualan yang sesungguhnya)
+        var salesData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            datasets: [{
+                label: 'Penjualan',
+                data : [80, 100, 120, 70, 140, 170, 130, 160, 190, 220, 250, 180],
+                backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        };
+
+        // Get the chart canvas element
+        var ctx = document.getElementById('salesChart').getContext('2d');
+
+        // Create a line chart
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: salesData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
